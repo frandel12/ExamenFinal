@@ -1,0 +1,72 @@
+<div class="contenier-fluid" style="background-color: #C1CFEA;">
+  <div class="container py-5 h-100">
+
+    <div class="row d-flex justify-content-center align-items-center h-100" style="color: #282828;">
+      <div class="col-md-9 col-lg-7 col-xl-5">
+
+        <div class="card mb-4 gradient-custom" style="border-radius: 25px;">
+          <div class="card-body p-4">
+
+            <div id="demo1" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ul class="carousel-indicators mb-0">
+                <li data-target="#demo1" data-slide-to="0" class="active"></li>
+                <li data-target="#demo1" data-slide-to="1"></li>
+                <li data-target="#demo1" data-slide-to="2"></li>
+              </ul>
+              <!-- Carousel inner -->
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="d-flex justify-content-between mb-4 pb-2">
+                    <div>
+                      <h2 class="display-2"><strong>{{ weather.main.temp}}°F</strong></h2>
+                      <button type="button" class="btn btn-sm btn-primary">°F</button>
+                      <button type="button" class="btn btn-sm btn-secondary rounded">°C</button>
+                      <p class="text-muted mb-0">{{ weather.name }}, {{weather.sys.country}}</p>
+                    </div>
+                    <div>
+                      <img [src]="'http://openweathermap.org/img/w/' + weather.icon + '.png'" class="img-fluid"
+                        width="150px">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card mb-4" style="border-radius: 25px;">
+          <div class="card-body p-4">
+
+            <div id="demo2" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ul class="carousel-indicators mb-0">
+                <li data-target="#demo2" data-slide-to="0"></li>
+                <li data-target="#demo2" data-slide-to="1" class="active"></li>
+                <li data-target="#demo2" data-slide-to="2"></li>
+              </ul>
+              <!-- Carousel inner -->
+              <div class="carousel-inner">
+                <div class="carousel-item active" >
+                  <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2"  *ngFor="let forecast of pronostic.list">
+                    <div class="flex-column">
+                      <p class="small"><strong>{{ kelvinToCelsius(weather.temp) }}</strong></p>
+                      <img [src]="'http://openweathermap.org/img/w/' + forecast.weather[0].icon + '.png'" alt="Weather Icon"
+                      class="img">
+                      <i class="fas fa-sun fa-2x mb-3" style="color: #ddd;"></i>
+                      <p class="mb-0"><strong>{{ forecast.dt_txt }}</strong></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+  
